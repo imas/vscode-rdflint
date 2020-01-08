@@ -1,27 +1,27 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-rdflint" is now active!');
+	// setup setting from enviroment variables
+	let javaHome : string | undefined = process.env.JAVA_HOME;
+	let rdflintJar : string | undefined = process.env.RDFLINT_JAR;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
+	// rdflint interactive mode startup command
+	let disposable = vscode.commands.registerCommand('rdflint.interactiveMode', () => {
+		if (undefined === javaHome) {
+			vscode.window.showInformationMessage('Please setup enviroment variable JAVA_HOME');
+			return;
+		}
+		if (undefined === rdflintJar) {
+			vscode.window.showInformationMessage('Please setup enviroment variable RDFLINT_JAR');
+			return;
+		}
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+		const terminal = vscode.window.createTerminal(`rdflint`, javaHome + "/bin/java", ['-jar', rdflintJar, '-i']);
+		terminal.show(true);
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() {}

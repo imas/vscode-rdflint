@@ -1,23 +1,37 @@
 {
 	"name": "vscode-rdflint",
-	"displayName": "vscode-rdflint",
-	"description": "",
+	"displayName": "RDF language support via rdflint",
 	"version": "0.0.1",
+	"publisher": "takemikami",
+	"description": "RDF language support via rdflint",
+	"author": {
+		"name": "Takeshi Mikami",
+		"url" : "https://takemikami.com/"
+	},
+	"categories": [
+		"Linters"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/takemikami/vscode-rdflint/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/takemikami/vscode-rdflint"
+	},
+	"homepage": "https://github.com/takemikami/vscode-rdflint/blob/master/README.md",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
-	"categories": [
-		"Other"
-	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:rdflint.interactiveMode"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "rdflint.interactiveMode",
+				"title": "rdflint interactiveMode: SPARQL playground"
 			}
 		]
 	},
