@@ -2,6 +2,14 @@
 
 Provides RDF language support via [rdflint](https://github.com/imas/rdflint).
 
+## Quick Start
+
+- Install JDK or JRE, and setup JAVA_HOME environment variable.
+- Start Visual Studio Code.
+- Install this extension.
+- Shift+Cmd+P and select `rdflint Interactive Mode: SPARQL playground`.
+   - You can find the command, with type substring like 'rdflint', 'SPARQL', etc.
+
 ## Features
 
 - SPARQL playground. (rdflint Interactive Mode).
@@ -9,7 +17,6 @@ Provides RDF language support via [rdflint](https://github.com/imas/rdflint).
 ## Requirements
 
 - Install JDK or JRE, and setup JAVA_HOME environment variable.
-- Download rdflint jar file, and setup RDFLINT_JAR environment variable.
 
 ## Available commands
 
