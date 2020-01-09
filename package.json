@@ -6,20 +6,20 @@
 	"description": "RDF language support via rdflint",
 	"author": {
 		"name": "Takeshi Mikami",
-		"url" : "https://takemikami.com/"
+		"url": "https://takemikami.com/"
 	},
 	"categories": [
 		"Linters"
 	],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/takemikami/vscode-rdflint/issues"
+		"url": "https://github.com/imas/vscode-rdflint/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/takemikami/vscode-rdflint"
+		"url": "https://github.com/imas/vscode-rdflint"
 	},
-	"homepage": "https://github.com/takemikami/vscode-rdflint/blob/master/README.md",
+	"homepage": "https://github.com/imas/vscode-rdflint/blob/master/README.md",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
