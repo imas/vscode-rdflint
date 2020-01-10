@@ -1,5 +1,7 @@
 # vscode-rdflint README
 
+[![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/takemikami.vscode-rdflint.svg "Current Release")](https://marketplace.visualstudio.com/items?itemName=takemikami.vscode-rdflint)
+
 Provides RDF language support via [rdflint](https://github.com/imas/rdflint).
 
 ## Quick Start

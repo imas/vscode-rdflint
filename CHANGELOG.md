@@ -7,6 +7,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Work with rdflint over Language Server Protocol.
+
+## 0.0.2
+
 - Auto download rdflint jar file.
 
 ## 0.0.1
