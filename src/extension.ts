@@ -9,6 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// setup setting from enviroment variables
 	let javaHome : string | undefined = process.env.JAVA_HOME;
 	let rdflintJar : string | undefined = process.env.RDFLINT_JAR;
+	let javaExe : string = process.platform === 'win32' ? "/bin/java.exe" : "/bin/java";
 
 	// setup rdflint jar file
 	async function setupRdflintJar() {
@@ -59,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		setupRdflintJar()
 			.then((jar) => {
-				let terminal = vscode.window.createTerminal(`rdflint`, javaHome + "/bin/java", ['-jar', '' + jar, '-i']);
+				let terminal = vscode.window.createTerminal(`rdflint`, javaHome + javaExe, ['-jar', '' + jar, '-i']);
 				terminal.show(true);
 			})
 			.catch((err) => {
