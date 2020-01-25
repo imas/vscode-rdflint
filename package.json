@@ -1,7 +1,7 @@
 {
 	"name": "vscode-rdflint",
 	"displayName": "RDF language support via rdflint",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "takemikami",
 	"description": "RDF language support via rdflint",
 	"author": {
@@ -24,7 +24,9 @@
 		"vscode": "^1.41.0"
 	},
 	"activationEvents": [
-		"onCommand:rdflint.interactiveMode"
+		"onCommand:rdflint.interactiveMode",
+		"onLanguage:turtle",
+		"onLanguage:rdfxml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -33,7 +35,56 @@
 				"command": "rdflint.interactiveMode",
 				"title": "rdflint interactiveMode: SPARQL playground"
 			}
-		]
+		],
+		"languages": [
+			{
+				"id": "rdfxml",
+				"extensions": [
+					".rdf"
+				],
+				"aliases": [
+					"RDFXML",
+					"RDF",
+					"rdfxml",
+					"rdf"
+				],
+				"configuration": "./rdfxml.language-configuration.json"
+			},
+			{
+				"id": "turtle",
+				"extensions": [
+					".ttl"
+				],
+				"aliases": [
+					"TURTLE",
+					"turtle"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "rdfxml",
+				"scopeName": "text.xml",
+				"path": "./syntaxes/rdfxml.tmLanguage.json"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "RdflintLanguageServer configuration",
+			"properties": {
+				"rdflintLanguageServer.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -41,6 +92,9 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
 		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^5.2.1"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
