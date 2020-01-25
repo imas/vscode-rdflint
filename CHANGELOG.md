@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## 0.0.4
+
 - Work with rdflint over Language Server Protocol.
 
 ## 0.0.3
